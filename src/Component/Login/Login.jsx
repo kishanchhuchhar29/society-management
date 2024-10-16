@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { validateEmail, validatePassword } from './../../../src/utails.js'
+import { validateEmail, validatePassword } from '../../utails/utails.js'
 
 export default function Login() {
   const [email, setEmail] = useState('')
