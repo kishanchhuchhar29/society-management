@@ -1,11 +1,9 @@
 "use client";
 import React from "react";
-import Login from "../../../Component/Login/Login";
+import AdminPage from "../../../Component/Super-admin/AllAdmin/Admin";
 export default function page({ params }) {
   const { id } = params;
   return (
-    <div>
-      <h1>Society List:{id}</h1>
-    </div>
+   <AdminPage/>
   );
 }
