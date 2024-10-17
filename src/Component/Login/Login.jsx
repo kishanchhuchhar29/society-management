@@ -1,40 +1,45 @@
 'use client'
-
-import { useState } from 'react'
-import { validateEmail, validatePassword } from '../../utails/utails.js'
+import { useState } from "react";
+import { validateEmail, validatePassword } from "../../utails/utails.js";
 
 export default function Login() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [emailError, setEmailError] = useState('')
-  const [passwordError, setPasswordError] = useState('')
-
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
   const handleSubmit = (e) => {
-    e.preventDefault()
-    setEmailError('')
-    setPasswordError('')
+    e.preventDefault();
+    setEmailError("");
+    setPasswordError("");
 
     if (!validateEmail(email)) {
-      setEmailError('Please enter a valid email address')
-      return
+      setEmailError("Please enter a valid email address");
+      return;
     }
 
     if (!validatePassword(password)) {
-      setPasswordError('Password must be at least 8 characters long and contain at least one capital letter')
-      return
+      setPasswordError(
+        "Password must be at least 8 characters long and contain at least one capital letter"
+      );
+      return;
     }
 
     // Here you would typically handle the login logic
-    console.log('Login submitted', { email, password })
-  }
+    console.log("Login submitted", { email, password });
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-md w-96">
-        <h1 className="text-2xl font-bold mb-6 text-center text-gray-800">Login</h1>
+        <h1 className="text-2xl font-bold mb-6 text-center text-gray-800">
+          Login
+        </h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700"
+            >
               Email
             </label>
             <input
@@ -46,12 +51,13 @@ export default function Login() {
               required
               className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
             />
-            {emailError && (
-              <p className="text-red-500 text-sm">{emailError}</p>
-            )}
+            {emailError && <p className="text-red-500 text-sm">{emailError}</p>}
           </div>
           <div className="space-y-2">
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-gray-700"
+            >
               Password
             </label>
             <input
@@ -76,5 +82,5 @@ export default function Login() {
         </form>
       </div>
     </div>
-  )
+  );
 }

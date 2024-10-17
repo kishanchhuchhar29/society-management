@@ -20,6 +20,10 @@ const SocietyListPage = () => {
     setSocieties([...societies, { ...newSociety, id: Date.now() }])
   }
 
+  const handleNavigate = (id) => {
+    window.location.href = `/societylist/${id}`
+  }
+
   return (
     <Container maxWidth="md" sx={{ py: 4 }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
@@ -43,7 +47,7 @@ const SocietyListPage = () => {
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {societies.map((society) => (
-            <Card key={society.id}>
+            <Card key={society.id} onClick={() => handleNavigate(society.id)}>
               <CardContent className="p-4 flex items-center cursor-pointer">
                 <div className="w-12 h-12 rounded-full bg-gray-200 flex-shrink-0 mr-4 overflow-hidden">
                   {society.logo ? (
