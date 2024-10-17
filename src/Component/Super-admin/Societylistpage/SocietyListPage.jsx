@@ -41,19 +41,28 @@ const SocietyListPage = () => {
           No societies added yet.
         </Typography>
       ) : (
-        <Grid container spacing={3}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {societies.map((society) => (
-            <Grid item xs={12} sm={6} md={4} key={society.id}>
-              <Card elevation={3}>
-                <CardContent>
-                  <Typography variant="h6" component="div" align="center">
-                    {society.name}
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
+            <Card key={society.id}>
+              <CardContent className="p-4 flex items-center cursor-pointer">
+                <div className="w-12 h-12 rounded-full bg-gray-200 flex-shrink-0 mr-4 overflow-hidden">
+                  {society.logo ? (
+                    <img 
+                      src={society.logo} 
+                      alt={`${society.name} logo`} 
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-2xl font-bold text-gray-400">
+                      {society.name.charAt(0).toUpperCase()}
+                    </div>
+                  )}
+                </div>
+                <h2 className="text-lg font-semibold truncate">{society.name}</h2>
+              </CardContent>
+            </Card>
           ))}
-        </Grid>
+        </div>
       )}
 
       <AddSocietyPopup
