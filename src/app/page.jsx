@@ -1,8 +1,9 @@
 // import Login from "../Component/Login/Login";
 import SocietyListPage from "../Component/Super-admin/Societylistpage/SocietyListPage";
-
+import AdminPage from "../Component/Super-admin/AllAdmin/Admin";
 export default function Home() {
   return (
-    <h1 className="text-3xl font-bold underline">Society List</h1>
+    // <h1 className="text-3xl font-bold underline">Society List</h1>
+    <AdminPage/>
   );
 }
